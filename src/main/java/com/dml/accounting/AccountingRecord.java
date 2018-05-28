@@ -28,6 +28,49 @@ public class AccountingRecord {
 	 */
 	private double balanceAfter;
 
-	private AccountingAction action;
+	/**
+	 * 记账摘要
+	 */
+	private AccountingSummary summary;
+
+	public String getAccountId() {
+		return accountId;
+	}
+
+	public void setAccountId(String accountId) {
+		this.accountId = accountId;
+	}
+
+	public long getAccountingNo() {
+		return accountingNo;
+	}
+
+	public void setAccountingNo(long accountingNo) {
+		this.accountingNo = accountingNo;
+	}
+
+	public double getAccountingAmount() {
+		return accountingAmount;
+	}
+
+	public void setAccountingAmount(double accountingAmount) {
+		this.accountingAmount = accountingAmount;
+	}
+
+	public double getBalanceAfter() {
+		return balanceAfter;
+	}
+
+	public void setBalanceAfter(double balanceAfter) {
+		this.balanceAfter = balanceAfter;
+	}
+
+	public AccountingSummary getSummary() {
+		return summary;
+	}
+
+	public void setSummary(AccountingSummary summary) {
+		this.summary = summary;
+	}
 
 }
