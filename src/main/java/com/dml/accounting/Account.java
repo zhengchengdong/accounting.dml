@@ -38,7 +38,7 @@ public class Account {
 	 * @param summary
 	 * @return 记账记录
 	 */
-	public AccountingRecord deposit(double amount, AccountingSummary summary) {
+	public AccountingRecord deposit(double amount, AccountingSummary summary, long depositTime) {
 		BigDecimal b1 = new BigDecimal(Double.toString(amount));
 		BigDecimal b2 = new BigDecimal(Double.toString(balance));
 		balance = b1.add(b2).doubleValue();
@@ -49,6 +49,7 @@ public class Account {
 		ar.setAccountingNo(accountingNo);
 		ar.setBalanceAfter(balance);
 		ar.setSummary(summary);
+		ar.setAccountingTime(depositTime);
 		return ar;
 	}
 
@@ -60,7 +61,8 @@ public class Account {
 	 * @return 记账记录
 	 * @throws InsufficientBalanceException
 	 */
-	public AccountingRecord withdraw(double amount, AccountingSummary summary) throws InsufficientBalanceException {
+	public AccountingRecord withdraw(double amount, AccountingSummary summary, long withdrawTime)
+			throws InsufficientBalanceException {
 		if (balance >= amount) {
 			BigDecimal b1 = new BigDecimal(Double.toString(amount));
 			BigDecimal b2 = new BigDecimal(Double.toString(balance));
@@ -72,6 +74,7 @@ public class Account {
 			ar.setAccountingNo(accountingNo);
 			ar.setBalanceAfter(balance);
 			ar.setSummary(summary);
+			ar.setAccountingTime(withdrawTime);
 			return ar;
 		} else {
 			throw new InsufficientBalanceException();
@@ -85,7 +88,7 @@ public class Account {
 	 * @param summary
 	 * @return 记账记录
 	 */
-	public AccountingRecord withdrawAnyway(double amount, AccountingSummary summary) {
+	public AccountingRecord withdrawAnyway(double amount, AccountingSummary summary, long withdrawTime) {
 		BigDecimal b1 = new BigDecimal(Double.toString(amount));
 		BigDecimal b2 = new BigDecimal(Double.toString(balance));
 		balance = b2.subtract(b1).doubleValue();
@@ -96,6 +99,7 @@ public class Account {
 		ar.setAccountingNo(accountingNo);
 		ar.setBalanceAfter(balance);
 		ar.setSummary(summary);
+		ar.setAccountingTime(withdrawTime);
 		return ar;
 	}
 

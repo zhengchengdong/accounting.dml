@@ -33,6 +33,11 @@ public class AccountingRecord {
 	 */
 	private AccountingSummary summary;
 
+	/**
+	 * 记账时间
+	 */
+	private long accountingTime;
+
 	public String getAccountId() {
 		return accountId;
 	}
@@ -71,6 +76,14 @@ public class AccountingRecord {
 
 	public void setSummary(AccountingSummary summary) {
 		this.summary = summary;
+	}
+
+	public long getAccountingTime() {
+		return accountingTime;
+	}
+
+	public void setAccountingTime(long accountingTime) {
+		this.accountingTime = accountingTime;
 	}
 
 }
